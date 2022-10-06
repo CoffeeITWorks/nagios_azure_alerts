@@ -82,10 +82,11 @@ def cli_execution(options):
         sys.exit('Error getting data from {} http_code != 200, http_code: {}'.format(response_http_code))
 
     def check(retrcode):
+        global status
         if retrcode == 2:            
+            status = CRITICAL
             message['summary'] = 'CRITICAL: ' + str(summary_alerts)
-        else:
-            global status 
+        else:             
             status = OK
             message['summary'] = 'OK: No alerts' 
         return status

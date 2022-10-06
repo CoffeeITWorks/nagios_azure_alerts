@@ -8,6 +8,7 @@ import rstcheck
 
 
 mypackage_root_dir = 'azure_alerts'
+name_package = 'azure_alerts_plugin'
 
 # function to check a readme file
 def check_readme(file='README.rst'):
@@ -32,8 +33,15 @@ def check_readme(file='README.rst'):
 
 # Get requirements for this package
 here_path = path.abspath(path.dirname(__file__))
-with open(os.path.join(here_path, 'requirements.txt')) as f:
-    requires = [x.strip() for x in f if x.strip()]
+
+if os.path.isfile('./requirements.txt'):
+    with open(os.path.join(here_path, 'requirements.txt')) as f:
+        requires = [x.strip() for x in f if x.strip()]
+elif os.path.isfile('./' + name_package + '.egg-info/requires.txt'):
+    with open('./' + name_package + '.egg-info/requires.txt') as f:
+        requires = [x.strip() for x in f if x.strip()]
+else:
+    requires=""
 
 # Get the version from VERSION file
 with open(os.path.join(mypackage_root_dir, 'VERSION')) as version_file:
@@ -49,7 +57,7 @@ with open(readme_path, encoding='utf-8') as f:
 check_readme(readme_path)
 
 # Define setuptools specifications
-setup(name='azure_alerts_plugin',
+setup(name=name_package,
     version=version,
     description='check active azure alerts',
     long_description=long_description,  # this is the file README.rst
@@ -61,7 +69,7 @@ setup(name='azure_alerts_plugin',
         'Programming Language :: Python :: 3 :: Only',
         'Topic :: System :: Monitoring',
     ],
-    url='https://github.com/',
+    url='https://github.com/CoffeeITWorks/nagios_azure_alerts',
     author='Matias Graña',
     author_email='maicolmatiasg@gmail.com',
     license='MIT', # Choose your license
