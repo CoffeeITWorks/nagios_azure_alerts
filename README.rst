@@ -2,9 +2,18 @@ Azure alerts monitoring plugin
 ==============================
 
 Checks azure alerts and raise an alert if some problem is found.
-Uses curl with all its power, so you can extend your check with all curl options.
+
 
 `VERSION  <azure_alerts/VERSION>`__
+
+
+References:
+-----------
+
+- `Azure Monitor Alerts <https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview/>`_.
+
+- `Azure Monitor permissions <https://learn.microsoft.com/en-us/azure/azure-monitor/roles-permissions-security/>`_.
+
 
 Install
 =======
