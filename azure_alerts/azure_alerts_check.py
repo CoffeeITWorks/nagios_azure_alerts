@@ -63,6 +63,8 @@ class AzureAlerts:
             """
             )            
 
+            status = OK
+
             ## Start processing the json
             ## and generate the string to print
             ## Read the list of alerts from key 'value'
