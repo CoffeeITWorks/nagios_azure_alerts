@@ -2,3 +2,5 @@
   * First version with basic functions to check Azure Alerts.
 0.1.8
   * Fix on requierements
+0.1.9
+  * Fix status assignment.
