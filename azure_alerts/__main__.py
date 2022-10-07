@@ -85,10 +85,10 @@ def cli_execution(options):
         global status
         if retrcode == 2:            
             status = CRITICAL
-            message['summary'] = 'CRITICAL: ' + str(summary_alerts)
+            message['summary'] = 'CRITICAL \n' + str(summary_alerts)
         else:             
             status = OK
-            message['summary'] = 'OK: No alerts' 
+            message['summary'] = 'OK: No alerts \n' 
         return status
 
     # Check logic starts here    
